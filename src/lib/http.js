@@ -33,7 +33,6 @@ export default function createHttpClient (config = {}) {
     // 异常处理
 
     const { config, code, message } = err
-    console.log(config.retryTimes)
     if (code === 'ECONNABORTED' || message === 'Network Error') { // 请求超时
       console.warn(`请求超时，将在${defaultConfig.retryDelay / 1000}秒后重试`)
       return new Promise(resolve => {
